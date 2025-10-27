@@ -15,9 +15,9 @@ jobs:
 
       - name: Daily Commit with 25ds3000118@ds.study.iitm.ac.in
         run: |
-          date >> daily-log.txt
+          echo "$(date)" >> daily-log.txt
           git config --local user.email "25ds3000118@ds.study.iitm.ac.in"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "Daily update"
+          git commit -m "Daily update" || echo "No changes to commit"
           git push
